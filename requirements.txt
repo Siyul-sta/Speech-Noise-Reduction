@@ -1,1 +1,7 @@
-
+numpy
+scipy
+librosa
+soundfile
+matplotlib
+pandas
+pesq
