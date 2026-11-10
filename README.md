@@ -6,7 +6,7 @@
 - **A** — IMCRA + OM-LSA + modulation-domain Kalman + adaptive fusion.
 - **B** — TSNR + HRNR + Wiener v3.
 
-**Integration status:** The adapter, batch runner and reference-based evaluator are implemented in the feature branch. Teammates must still contribute their original, reviewed code as `src/engines/speech_gain_engine.py` and `src/engines/tsnr_hrnr_v3.py` via separate PRs. Until then, the full program cannot run.
+**Integration status:** The adapter, batch runner, reference-based evaluator, and both independently authored engines are on this feature branch. Both teammate engine files are now present on this feature branch for review. Integration has passed limited smoke checks on 5 validation samples, but full PESQ-WB evaluation and clean-environment installation have **not** been completed. Do not submit this branch as a validated final candidate.
 
 ## Setup
 Requires Python 3.10+ and the exact engine files above.
