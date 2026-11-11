@@ -36,6 +36,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", default="input")
     parser.add_argument("--output", default="output")
-    parser.add_argument("--method", choices=("a", "b"), default="b")
+    parser.add_argument("--method", choices=("a", "b", "v4"), default="b")
     args = parser.parse_args()
     print(f"Processed {process_directory(args.input, args.output, args.method)} WAV files")
