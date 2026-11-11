@@ -1,4 +1,4 @@
-"""Adapters for the two independently developed classical DSP engines."""
+"""Adapters for classical DSP engines and an experimental v4 candidate."""
 import numpy as np
 from scipy import signal
 
@@ -25,6 +25,12 @@ def enhance_b(x, sr):
     return _same_length(enhance(x, sr, Config()), len(x))
 
 
+def enhance_v4(x, sr):
+    """v4 candidate: v3 HRNR + adaptive noise PSD + light dry blend."""
+    from .engines.tsnr_hrnr_v4 import enhance
+    return _same_length(enhance(x, sr), len(x))
+
+
 def _same_length(y, n):
     y = np.asarray(y, dtype=np.float64)
     if y.ndim != 1:
@@ -42,9 +48,9 @@ def enhance(x, sr=16000, method="a"):
     x = np.asarray(x, dtype=np.float64)
     if x.ndim not in (1, 2):
         raise ValueError("Expected samples or samples x channels")
-    if method not in ("a", "b"):
-        raise ValueError("Choose method a or b; oracle auto-selection is prohibited")
-    f = enhance_a if method == "a" else enhance_b
+    if method not in ("a", "b", "v4"):
+        raise ValueError("Choose method a, b, or v4; oracle auto-selection is prohibited")
+    f = {"a": enhance_a, "b": enhance_b, "v4": enhance_v4}[method]
     if x.ndim == 1:
         return f(x, sr)
     return np.column_stack([f(x[:, c], sr) for c in range(x.shape[1])])
