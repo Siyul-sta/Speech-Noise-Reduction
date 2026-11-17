@@ -6,7 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from src import final_dsp as dsp
-from candidate import make_estimator, MODES, ORIGINAL
+from noise_candidate import make_estimator, MODES, ORIGINAL
 
 
 def process(args):
