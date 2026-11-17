@@ -27,8 +27,8 @@ python experiments/noisy_only_3plus_20261117/main.py --input input --output outp
 
 python experiments/noisy_only_3plus_20261117/build_manifest.py --root noise_reduction_challenge --stage train --output results/three_plus_train_manifest.csv
 python experiments/noisy_only_3plus_20261117/experiment.py --root noise_reduction_challenge --manifest results/three_plus_train_manifest.csv --output results/three_plus_train_screen.csv --max-files 96 --workers 4
-# After selecting ONE candidate on Train (replace speech_guard with that mode):
-python experiments/noisy_only_3plus_20261117/experiment.py --root noise_reduction_challenge --manifest noise_reduction_challenge/validation/samples.csv --output results/three_plus_validation.csv --modes spp25 speech_guard --workers 4
+# After selecting ONE candidate on Train (replace quiet_focus with that mode):
+python experiments/noisy_only_3plus_20261117/experiment.py --root noise_reduction_challenge --manifest noise_reduction_challenge/validation/samples.csv --output results/three_plus_validation.csv --modes spp25 quiet_focus --workers 4
 ```
 
 The manifest builder discovers pairs from train/noisy and train/clean. Select one candidate on the 96-file spread-out Train screen, then compare it with spp25 on all 164 Validation files, retaining per-file results. This helps avoid repeated Validation-tuned parameter selection. Do not calibrate a unique gain from each file's Clean.
@@ -38,3 +38,15 @@ The manifest builder discovers pairs from train/noisy and train/clean. Select on
 The GitHub branch contains source and a reproducible evaluator. **No public-Validation PESQ for the new variants has been produced here.** A separate 8-Train/9-Validation standalone spectral reconstruction screening (different engine) did not improve Train STOI and was rejected.
 
 The reference-assisted 3.175/3.624 diagnostic experiments are excluded from the candidate set and cannot serve as submission scores.
+
+## Limited exploratory PSD diagnostic (NOT the official final pipeline)
+
+On a separate lightweight Noisy-only PSD estimator, the mean across per-file median absolute PSD errors in **noise-dominant** STFT bins was:
+
+| Noise PSD | Train (8 pairs) | Validation (9 pairs) |
+|---|---:|---:|
+| local PSD | 4.2206 dB | 3.8710 dB |
+| fixed SPP25 | 3.9732 dB | 3.5621 dB |
+| quiet_focus | **3.7909 dB** | **3.3728 dB** |
+
+For diagnostics ONLY, level-aligned Clean was used to derive the true noise and label noise-dominant bins. Neither the candidate nor the submission code consumes Clean. Because this used a lightweight proxy estimator, it does **not** establish improvement of the full submission's PESQ-WB. The independent standalone restoration candidate failed Train STOI screening and was not retained. Official `pesq` package was not available in this execution sandbox; the next required step is full-pipeline evaluation on the Train/Validation audio with that package installed.
