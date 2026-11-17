@@ -58,8 +58,11 @@ def main():
 
     with args.manifest.open(encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
-    if args.max_files > 0:
-        rows = rows[:args.max_files]
+    if args.max_files > 0 and len(rows) > args.max_files:
+        # Spread samples across the sorted manifest to avoid selecting only
+        # the first few speakers (all indices are deterministic).
+        indices = np.linspace(0, len(rows)-1, args.max_files, dtype=int)
+        rows = [rows[i] for i in indices]
     if not rows:
         raise ValueError("Empty manifest")
     args.output.parent.mkdir(parents=True, exist_ok=True)
