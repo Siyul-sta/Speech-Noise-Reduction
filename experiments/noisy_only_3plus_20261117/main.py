@@ -11,7 +11,8 @@ from candidate import make_estimator, MODES, ORIGINAL
 
 def process(args):
     # All candidates re-use root submission code to preserve PCM16/file handling.
-    from main import process_directory
+    import runpy
+    process_directory = runpy.run_path(str(ROOT / "main.py"))["process_directory"]
     previous = dsp.noise_estimate
     dsp.noise_estimate = make_estimator(args.mode)
     try:
