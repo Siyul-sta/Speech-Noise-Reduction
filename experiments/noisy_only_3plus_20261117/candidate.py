@@ -5,6 +5,9 @@ The baseline uses 12_1500; the known 0.25 SPP blend is a fixed control.
 """
 import numpy as np
 from scipy import ndimage
+from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src import final_dsp as dsp
 
 EPS = 1e-18
