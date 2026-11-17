@@ -31,7 +31,8 @@ python main.py --input input --output output --workers 6
 - 챌린지: 1차 챌린지
 - 코드 버전명: `final-dsp-20261117` (제출 회차 번호와 별개)
 - 정확한 제출 커밋: 이 버전을 가리키는 커밋 SHA를 LearnUs 비밀글에 명시합니다. `git rev-parse HEAD`로 확인할 수 있습니다.
-- 팀명 / 실제 제출 회차: 아직 제공받지 않아 임의 기재하지 않았습니다. LearnUs 제출 전 실제 값을 추가해야 합니다.
+- 팀명: **항정살**
+- 제출 회차: **2회차**
 - AI 활용 내역서: 팀장이 LearnUs에 별도로 첨부합니다.
 
 ## 공개 Validation 재검증
