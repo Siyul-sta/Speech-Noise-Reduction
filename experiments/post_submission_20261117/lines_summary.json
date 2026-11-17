@@ -1,0 +1,58 @@
+[
+  {
+    "stage": "screen",
+    "n": 32,
+    "baseline": 3.116883050650358,
+    "candidate": 3.1254149563610554,
+    "delta": 0.00853190571069716,
+    "improved": 4,
+    "worse": 1,
+    "unchanged": 27,
+    "paired_file_bootstrap_95ci": [
+      -8.384883403780852e-05,
+      0.020770400762557956
+    ]
+  },
+  {
+    "stage": "confirm",
+    "n": 48,
+    "baseline": 2.9041019355257354,
+    "candidate": 2.904550147553285,
+    "delta": 0.0004482120275497344,
+    "improved": 6,
+    "worse": 1,
+    "unchanged": 41,
+    "paired_file_bootstrap_95ci": [
+      -8.112688859303792e-05,
+      0.001095135137438737
+    ]
+  },
+  {
+    "stage": "audit",
+    "n": 64,
+    "baseline": 2.8799076601862907,
+    "candidate": 2.8978776056319475,
+    "delta": 0.017969945445656766,
+    "improved": 5,
+    "worse": 2,
+    "unchanged": 57,
+    "paired_file_bootstrap_95ci": [
+      -8.014030754567233e-05,
+      0.05040083774365479
+    ]
+  },
+  {
+    "stage": "validation",
+    "n": 164,
+    "baseline": 2.8487772469113515,
+    "candidate": 2.849007911798431,
+    "delta": 0.00023066488707938117,
+    "improved": 11,
+    "worse": 9,
+    "unchanged": 144,
+    "paired_file_bootstrap_95ci": [
+      -0.0056716966738061345,
+      0.0046343192276431504
+    ]
+  }
+]

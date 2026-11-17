@@ -1,0 +1,7 @@
+{
+  "io_cases_passed": 4,
+  "evaluated_candidate_equivalence": true,
+  "synthetic_1000hz_tone_correlation": 0.9999999736723162,
+  "zero_input_checked": true,
+  "real_detected_tone_candidate_equivalence": true
+}
