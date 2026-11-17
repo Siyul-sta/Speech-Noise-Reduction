@@ -10,7 +10,7 @@ import soundfile as sf
 from pesq import pesq
 from pystoi import stoi
 
-from candidate import MODES, enhance
+from noise_candidate import MODES, enhance
 
 
 def evaluate_one(job):
