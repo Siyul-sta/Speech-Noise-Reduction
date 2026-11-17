@@ -1,0 +1,300 @@
+{
+  "all": {
+    "control": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3
+      }
+    ],
+    "low07": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "psd_low_scale": 0.7
+      }
+    ],
+    "low15": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "psd_low_scale": 1.5
+      }
+    ],
+    "high07": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "psd_high_scale": 0.7
+      }
+    ],
+    "high15": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "psd_high_scale": 1.5
+      }
+    ],
+    "protect05": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "speech_protect": 0.5
+      }
+    ],
+    "protect1": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "speech_protect": 1.0
+      }
+    ],
+    "power12": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "gain_power": 1.2
+      }
+    ],
+    "power085": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "gain_power": 0.85
+      }
+    ],
+    "log_smooth": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "log_smooth": true
+      }
+    ],
+    "fft2048": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "n_fft": 2048,
+        "hop": 256
+      }
+    ],
+    "fft512": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 0.5,
+        "smooth_time": 4.0,
+        "noise_scale": 1.3,
+        "n_fft": 512,
+        "hop": 128
+      }
+    ],
+    "hrnr1": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "harmonic_weight": 1.0
+      }
+    ],
+    "hrnr3": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "harmonic_weight": 3.0
+      }
+    ],
+    "t3": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 3.0,
+        "noise_scale": 1.3
+      }
+    ],
+    "t4": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 4.0,
+        "noise_scale": 1.3
+      }
+    ],
+    "f05": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 0.5,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3
+      }
+    ],
+    "f2": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 2.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3
+      }
+    ],
+    "ddmix02": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "dd_mix": 0.2
+      }
+    ],
+    "ddmix06": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "dd_mix": 0.6
+      }
+    ],
+    "ddmix06__high15": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "dd_mix": 0.6,
+        "psd_high_scale": 1.5
+      }
+    ],
+    "ddmix06__low07": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "dd_mix": 0.6,
+        "psd_low_scale": 0.7
+      }
+    ],
+    "ddmix06__hrnr1": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "dd_mix": 0.6,
+        "harmonic_weight": 1.0
+      }
+    ],
+    "high15__low07": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "psd_high_scale": 1.5,
+        "psd_low_scale": 0.7
+      }
+    ],
+    "high15__hrnr1": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "psd_high_scale": 1.5,
+        "harmonic_weight": 1.0
+      }
+    ],
+    "low07__hrnr1": [
+      1.0,
+      {
+        "floor": 0.01,
+        "init_quantile": 0.08,
+        "smooth_freq": 1.0,
+        "smooth_time": 2.0,
+        "noise_scale": 1.3,
+        "psd_low_scale": 0.7,
+        "harmonic_weight": 1.0
+      }
+    ]
+  },
+  "finalists": [
+    "control",
+    "ddmix06__high15",
+    "ddmix06__low07",
+    "ddmix06",
+    "low07__hrnr1"
+  ]
+}

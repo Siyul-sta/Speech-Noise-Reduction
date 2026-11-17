@@ -1,0 +1,2 @@
+method,n_total,snr_mean_db,snr_std_db,delta_snr_mean_db,pesq_mean,pesq_std,pesq_valid,delta_pesq_mean,delta_pesq_valid,pesq_failed
+optimized,164,2.4399104782466576,1.1468340841321154,-7.194235089056739,2.7750650498925187,0.730005338982725,164,1.380393492739375,164,0

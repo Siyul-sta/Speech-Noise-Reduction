@@ -1,0 +1,6 @@
+from tune import *
+base=json.loads((Path(__file__).parent/'results/configs.json').read_text())['all']['ddmix06__low07'][1]; C.clear()
+def cand(n,**kw):add(n,**(base|kw))
+cand('control');cand('m15',multi_mix=.15);cand('m30',multi_mix=.30);cand('m50',multi_mix=.50);cand('m75',multi_mix=.75);cand('m30_1536',multi_mix=.30,multi_fft=1536);cand('m50_1536',multi_mix=.50,multi_fft=1536);cand('m50_low1k',multi_mix=.50,multi_split_hz=1000.);cand('m75_low2k',multi_mix=.75,multi_split_hz=2000.);cand('fft2048_new',n_fft=2048,smooth_freq=1.5);cand('fft1536_new',n_fft=1536,smooth_freq=1.5);cand('dd75',dd_mix=.75);cand('dd80',dd_mix=.8);cand('low05',psd_low_scale=.5);cand('low07_high15',psd_high_scale=1.5)
+if __name__=='__main__':
+ m=load_manifest(ROOT,'validation');ids=pd.read_csv(Path(__file__).with_name('screen_ids.csv')).segment_id;screen=m[m.segment_id.isin(ids)];s=run(screen,list(C),'screen');fin=['control']+s[s.method!='control'].method.head(4).tolist();(OUT/'configs.json').write_text(json.dumps({'all':C,'finalists':fin},indent=2));run(m,fin,'full');d=pd.read_csv(OUT/'full_per_file.csv');summarize_scores(d[~d.segment_id.isin(ids)]).sort_values('pesq_mean',ascending=False).to_csv(OUT/'remaining_summary.csv',index=False);print('DONE',flush=True)

@@ -1,3 +1,9 @@
+# 최신 DSP 실험 결과
+
+최고 공개 Validation PESQ-WB **2.848777**인 코드와 전체 실험 기록을 [2026-11-17 실험 폴더](experiments/dsp_20261117/README.md)에 추가했습니다. 실행은 해당 폴더의 `depth_round/main.py --mode 12_1500`을 사용합니다. 공개 Validation 반복 사용 및 SNR·STOI 변화는 실험 README에서 확인할 수 있습니다.
+
+---
+
 # Speech-Noise-Reduction
 
 2026 Signals and Systems · Classical DSP Speech Noise Reduction Challenge.

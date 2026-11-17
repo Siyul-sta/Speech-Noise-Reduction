@@ -1,0 +1,2 @@
+method,n_total,snr_mean_db,snr_std_db,delta_snr_mean_db,pesq_mean,pesq_std,pesq_valid,delta_pesq_mean,delta_pesq_valid,pesq_failed
+pitch_deep,45,12.501629991536033,4.129151075160573,4.168284566150864,2.0873682101567588,0.8183725403869274,45,0.6880028327306111,45,0

@@ -1,0 +1,15 @@
+{
+  "method": "multires_scale15",
+  "blend": 1.0,
+  "config": {
+    "floor": 0.01,
+    "init_quantile": 0.08,
+    "smooth_freq": 1.0,
+    "smooth_time": 2.0,
+    "noise_scale": 1.5,
+    "dd_mix": 0.6,
+    "psd_low_scale": 0.7,
+    "multi_mix": 0.3,
+    "multi_scale": 1.5
+  }
+}
