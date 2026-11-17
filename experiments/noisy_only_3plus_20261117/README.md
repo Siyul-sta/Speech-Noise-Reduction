@@ -25,11 +25,13 @@ Run from repository root, with Python dependencies in root `requirements.txt` in
 ```bash
 python experiments/noisy_only_3plus_20261117/main.py --input input --output output --mode spp25
 
-python experiments/noisy_only_3plus_20261117/experiment.py --root noise_reduction_challenge --manifest noise_reduction_challenge/train/samples.csv --output results/three_plus_train.csv --workers 4
-python experiments/noisy_only_3plus_20261117/experiment.py --root noise_reduction_challenge --manifest noise_reduction_challenge/validation/samples.csv --output results/three_plus_validation.csv --workers 4
+python experiments/noisy_only_3plus_20261117/build_manifest.py --root noise_reduction_challenge --stage train --output results/three_plus_train_manifest.csv
+python experiments/noisy_only_3plus_20261117/experiment.py --root noise_reduction_challenge --manifest results/three_plus_train_manifest.csv --output results/three_plus_train_screen.csv --max-files 96 --workers 4
+# After selecting ONE candidate on Train (replace speech_guard with that mode):
+python experiments/noisy_only_3plus_20261117/experiment.py --root noise_reduction_challenge --manifest noise_reduction_challenge/validation/samples.csv --output results/three_plus_validation.csv --modes spp25 speech_guard --workers 4
 ```
 
-If Train has no `samples.csv`, use the manifest supplied with the dataset or create a CSV with `segment_id,noisy_path,clean_path`, with paths relative to the dataset root. Always select a single candidate on Train before judging all 164 Validation examples; retain per-file results. Do not calibrate a unique gain from each file's Clean.
+The manifest builder discovers pairs from train/noisy and train/clean. Select one candidate on the 96-file spread-out Train screen, then compare it with spp25 on all 164 Validation files, retaining per-file results. This helps avoid repeated Validation-tuned parameter selection. Do not calibrate a unique gain from each file's Clean.
 
 ## Status
 
