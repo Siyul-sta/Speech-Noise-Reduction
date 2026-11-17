@@ -1,3 +1,5 @@
+> 최종 제출은 저장소 루트의 `python main.py --input input --output output`을 사용합니다. 아래 명령은 과거 실험 재현용입니다. 최종 기본 실행과 164개 재검증 결과는 [루트 README](../../README.md)에 정리했습니다.
+
 # DSP 실험 기록 · 2026-11-17
 
 현재 최고 공개 Validation PESQ-WB는 2.848777이다. SNR 2.278749 dB, STOI 0.874681이며 평균 3.0까지 0.151223이 남는다. 최고 설정은 depth_round의 12_1500이다. 공개 Validation은 여러 차례 비교에 사용됐고 Hidden Test는 미측정이다. 최근 개선은 PESQ를 우선하며 SNR과 STOI가 소폭 하락했다.

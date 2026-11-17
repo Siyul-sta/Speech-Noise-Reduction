@@ -1,0 +1,15 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "soundfile": "0.14.0",
+    "pandas": "2.2.3",
+    "pesq": "0.0.4",
+    "pystoi": "0.4.1"
+  },
+  "mode": "PESQ-WB 16 kHz, PCM16 decoded outputs",
+  "aggregation": "Unweighted arithmetic mean across files",
+  "snr": "10*log10(sum(clean**2)/sum((clean-output)**2)), no level alignment"
+}

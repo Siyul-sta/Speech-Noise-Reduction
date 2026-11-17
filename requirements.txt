@@ -1,8 +1,8 @@
-numpy>=1.24,<3
-scipy>=1.10,<2
-librosa>=0.10,<1
-soundfile>=0.12,<1
-matplotlib>=3.7,<4
-pandas>=2.0,<3
+# Final inference and reproducible validation; tested with Python 3.12 on Linux.
+numpy==2.3.5
+scipy==1.17.0
+soundfile==0.14.0
+tqdm==4.70.1
+pandas==2.2.3
 pesq==0.0.4
-pytest>=7,<10
+pystoi==0.4.1

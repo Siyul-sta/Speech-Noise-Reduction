@@ -1,0 +1,10 @@
+test_archived_arithmetic_and_no_evaluation_imports (test_submission.SubmissionIO.test_archived_arithmetic_and_no_evaluation_imports) ... ok
+test_cli_from_other_directory_preserves_metadata (test_submission.SubmissionIO.test_cli_from_other_directory_preserves_metadata) ... Processed 8 WAV files
+ok
+test_invalid_audio_and_empty_input (test_submission.SubmissionIO.test_invalid_audio_and_empty_input) ... ok
+test_reject_same_directory (test_submission.SubmissionIO.test_reject_same_directory) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 4.279s
+
+OK
