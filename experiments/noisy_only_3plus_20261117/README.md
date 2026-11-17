@@ -66,3 +66,20 @@ The sample covers five Validation speakers, selected earlier for inspection from
 | nonstationary | 2.979433 | +0.000347 | 6 / 3 |
 
 **Do not compare these subset means against the 164-file 2.857110 result**. Likewise, 2.981761 is not a 164-file Validation score. The earlier lightweight PSD diagnostic ranks quiet_focus highest on its own error metric but that does not transfer to the PESQ outcome. The branch's `candidate.py` collision with the existing r6 module has been fixed by renaming to `noise_candidate.py`. No changes or merges into `main` were made.
+
+## Full public Validation PESQ-WB — 164 / 164 files (2026-11-17)
+
+All 164 paired Google Drive Clean/Noisy Validation WAVs were evaluated using 16-kHz mono PCM16, the archived Noisy-only second-submission enhancement pipeline, PCM16 output serialization and `pesq(16000, clean, enhanced, "wb")` **after** inference. The historical full-Validation controls were reproduced exactly to six decimals (baseline 2.848777; SPP25 2.857110).
+
+| Rank | Model | Mean PESQ-WB (164) | Delta vs baseline | Improved / regressed vs baseline |
+|---:|---|---:|---:|---:|
+| 1 | SPP25 | **2.857110** | +0.008332 | 99 / 65 |
+| 2 | quiet_focus | 2.853519 | +0.004741 | 99 / 65 |
+| 3 | speech_guard | 2.852237 | +0.003460 | 100 / 64 |
+| 4 | nonstationary | 2.851782 | +0.003005 | 102 / 62 |
+| 5 | down_guard | 2.850549 | +0.001772 | 124 / 40 |
+| 6 | baseline | 2.848777 | — | — |
+
+Original Noisy: **1.394672** mean PESQ-WB. No proposed alternative exceeded SPP25 or achieved the 3.0 target. The prior 9-file down_guard lead did not generalize (9-file 2.981761 versus full-set 2.850549). Although down_guard improves 124/164 files over baseline, its gains are too small relative to the SPP25 gains to lead on mean PESQ.
+
+**Decision: do NOT merge this research branch to main.** The selected full-Validation control remains SPP25 at **2.857110**. The original `main` branch was not changed by the validation run.
