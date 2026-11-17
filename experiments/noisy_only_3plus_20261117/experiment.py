@@ -15,21 +15,27 @@ from candidate import MODES, enhance
 
 def evaluate_one(job):
     row, root, modes = job
-    clean, sr = sf.read(root / row["clean_path"], dtype="float64")
     noisy, nsr = sf.read(root / row["noisy_path"], dtype="float64")
-    if sr != 16000 or nsr != sr or clean.shape != noisy.shape or clean.ndim != 1:
-        raise ValueError("Expected matched mono 16 kHz WAV pairs")
+    if nsr != 16000 or noisy.ndim != 1:
+        raise ValueError("Expected 16 kHz mono Noisy WAV")
+    # No Clean or reference file has been loaded at this point.
+    waveforms = {}
+    for mode in modes:
+        restored = enhance(noisy, nsr, mode)
+        bytestream = io.BytesIO()
+        sf.write(bytestream, restored, nsr, format="WAV", subtype="PCM_16")
+        bytestream.seek(0)
+        waveforms[mode], _ = sf.read(bytestream, dtype="float64")
+    # The evaluator loads ground truth ONLY after all inference calls finish.
+    clean, sr = sf.read(root / row["clean_path"], dtype="float64")
+    if sr != nsr or clean.shape != noisy.shape:
+        raise ValueError("Noisy/Clean WAV mismatch")
     limit = int(row.get("valid_samples") or len(clean))
     if not 0 < limit <= len(clean):
         raise ValueError("Invalid valid_samples")
-    # No reference audio is passed to the enhancement routine.
     output = {"segment_id": row["segment_id"]}
     for mode in modes:
-        restored = enhance(noisy, sr, mode)
-        bytestream = io.BytesIO()
-        sf.write(bytestream, restored, sr, format="WAV", subtype="PCM_16")
-        bytestream.seek(0)
-        decoded, _ = sf.read(bytestream, dtype="float64")
+        decoded = waveforms[mode]
         c, y = clean[:limit], decoded[:limit]
         if decoded.shape != clean.shape or not np.isfinite(y).all():
             raise ValueError("Output size/finite-value violation")
